@@ -1,7 +1,50 @@
 import Link from "next/link";
-import { Nav } from "../components/Nav";
 import { Footer } from "../components/Footer";
-import { QuoteForm } from "../components/QuoteForm";
 import { GarmentStudio } from "../components/designer/GarmentStudio";
-const steps = [["01","Consult & specify","Turn school requirements into a clear uniform brief."],["02","Sample & approve","Confirm fabric, fit, colours and logo treatment."],["03","Produce & deliver","Manufacture, inspect, pack and dispatch with documented milestones."]];
-export default function Home(){return <><Nav/><main className="home-redesign"><section className="home-hero"><div className="home-intro"><span className="eyebrow">Institutional uniform manufacturing · Nepal</span><h1>Uniforms that<br/><em>belong</em> to your school.</h1><p>Custom schoolwear, designed with your institution and manufactured for the routines that matter every day.</p><div><Link className="button" href="/quote">Request a quotation →</Link><Link className="text-link" href="#designer">Explore the designer ↓</Link></div></div><div className="home-hero-art"><div className="art-card art-back"/><div className="art-card art-front"><img src="/images/uniform-hero.png" alt="School uniform manufacturing collection"/></div><span>PRECISION IN EVERY LAYER</span></div></section><section className="home-proof"><div><strong>Custom</strong><span>School identity, colours, fabric and logo placement</span></div><div><strong>Bulk</strong><span>Built for institutional uniform programmes</span></div><div><strong>Sample-led</strong><span>Approved samples before production begins</span></div></section><section className="home-story"><div><span className="eyebrow" style={{color:"#53738f"}}>Built around your institution</span><h2>One supplier.<br/>Every layer.</h2></div><p>From shirts and skirts to blazers, sportswear and staff uniforms, your programme is developed around how your school looks, moves and grows.</p></section><div id="designer"><GarmentStudio/></div><section className="home-steps">{steps.map(([number,title,text])=><article key={number}><span>{number}</span><h2>{title}</h2><p>{text}</p></article>)}</section><section className="home-contact"><div><span className="eyebrow">Start a manufacturing conversation</span><h2>Tell us the brief.<br/>We&apos;ll make the plan.</h2></div><QuoteForm/></section></main><Footer/></>}
+import { Nav } from "../components/Nav";
+import { QuoteForm } from "../components/QuoteForm";
+import styles from "./home.module.css";
+
+const families = [
+  ["01", "Daily uniform", "Shirts, trousers, skirts and layers made for the everyday school routine."],
+  ["02", "Formal identity", "Blazers, ties and knitwear that make every school instantly recognisable."],
+  ["03", "Active programme", "Sports kits, house colours and staffwear designed for movement and repeat wear."],
+];
+const process = [
+  ["01", "Listen", "We map the school, season, quantity and visual brief."],
+  ["02", "Sample", "You approve fabric, fit, colour and logo placement."],
+  ["03", "Produce", "We manufacture and check every batch against the approved sample."],
+  ["04", "Deliver", "Clear packing and scheduled delivery for your uniform calendar."],
+];
+
+export default function Home() {
+  return <><Nav /><main className={`${styles.theme} home`}>
+    <section className="home-hero">
+      <div className="home-hero-copy">
+            <p className="eyebrow">Institutional uniform manufacturing · Nepal</p>
+            <h1>Made for every<br /><em>working day.</em></h1>
+            <p className="hero-lede">Distinctive uniforms for schools, colleges and healthcare teams—from first sketch and sample through to every delivery.</p>
+        <div className="hero-actions"><Link className="button" href="/quote">Start a uniform brief <span>↗</span></Link><a className="home-link" href="#designer">Build a look in 3D <span>↓</span></a></div>
+        <div className="hero-caption"><span>Built for</span><strong>Learning, care<br />and belonging.</strong></div>
+      </div>
+      <div className="home-hero-visual">
+        <div className="hero-arch" /><div className="hero-image-wrap"><img src="/images/uniform-world-sectors.png" alt="School, doctor and nurse uniforms" /></div>
+        <p className="hero-stamp">UN · 01<br />INSTITUTIONAL<br />UNIFORM</p>
+        <div className="hero-note"><span>Every colour</span><span>Every crest</span><span>Every routine</span></div>
+      </div>
+    </section>
+    <section className="home-intro-strip" aria-label="Uniform Nepal strengths"><p>Uniforms are not stock. They are your school, made tangible.</p><div><span>Custom colours</span><span>Approved samples</span><span>Institutional quantities</span></div></section>
+    <section className="home-families">
+      <div className="section-heading"><p className="eyebrow">One partner, every layer</p><h2>Build a complete<br />uniform system.</h2></div>
+      <div className="family-list">{families.map(([number, title, copy]) => <article key={number} className="family-card"><span>{number}</span><h3>{title}</h3><p>{copy}</p><Link href="/products">Explore uniforms <b>↗</b></Link></article>)}</div>
+    </section>
+    <section className="home-designer-intro"><div><p className="eyebrow">Try a direction before the sample</p><h2>See the school<br /><em>take shape.</em></h2></div><p>Choose the garment, establish a colour direction and preview logo placement. Then take the preferred direction into sampling with our team.</p></section>
+    <div id="designer"><GarmentStudio /></div>
+    <section className="home-process">
+      <div className="section-heading"><p className="eyebrow">A clear route to uniform</p><h2>From school brief<br />to school gate.</h2></div>
+      <div className="process-list">{process.map(([number, title, copy]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{copy}</p></article>)}</div>
+      <Link className="home-link process-link" href="/process">See the full process <span>↗</span></Link>
+    </section>
+    <section className="home-quote"><div><p className="eyebrow">A uniform programme starts here</p><h2>Tell us what your<br /><em>school needs.</em></h2><p>Share the essential details. We will help shape the next practical step.</p></div><QuoteForm /></section>
+  </main><Footer /></>;
+}
