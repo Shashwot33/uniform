@@ -1,6 +1,6 @@
-# Uniform Nepal — Virtual Uniform Try-On
+# Uniform World — Institutional Uniform Platform
 
-React/Vite storefront plus FastAPI service for a Nepal school-uniform retailer.
+Next.js storefront and FastAPI service for schools, colleges and hospitals in Nepal.
 
 ## Local development
 
@@ -9,7 +9,7 @@ cp .env.example .env
 docker compose up --build
 ```
 
-The web app is at `http://localhost:5173`, API docs at `http://localhost:8000/docs`, and MinIO at `http://localhost:9001`.
+The web app is at `http://localhost:3000`, API docs at `http://localhost:8000/docs`, and MinIO at `http://localhost:9001`.
 
 ## Launch controls
 
