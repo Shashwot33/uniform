@@ -1,0 +1,4 @@
+import { LayeredViewer } from "./viewers/LayeredViewer";
+import { useTryOn } from "../stores/tryon";
+export function TryOnStudio() { const { view, setView } = useTryOn();
+  return <section className="card overflow-hidden"><div className="flex items-center justify-between border-b p-4"><div><p className="eyebrow">Uniform preview</p><h2 className="font-bold">Build the look</h2></div><span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-brand">No photo required</span></div><div className="h-[440px]"><div className="h-[390px]"><LayeredViewer/></div><div className="flex justify-center gap-2"><button onClick={() => setView("front")} className={view === "front" ? "tab-active" : "tab"}>Front</button><button onClick={() => setView("back")} className={view === "back" ? "tab-active" : "tab"}>Back</button></div></div></section>; }

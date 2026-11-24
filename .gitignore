@@ -1,0 +1,13 @@
+.env
+*.py[cod]
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+node_modules/
+dist/
+.next/
+coverage/
+*.db
+*.tsbuildinfo
+minio-data/
+

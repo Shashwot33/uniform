@@ -1,0 +1,3 @@
+import { Schema, model, models } from "mongoose";
+const productSchema = new Schema({ name: { type: String, required: true, trim: true }, slug: { type: String, required: true, unique: true, index: true }, category: { type: String, required: true }, description: String, quoteOnly: { type: Boolean, default: true }, indicativePriceNpr: { type: Number, min: 0 }, imageUrl: String, fabric: String, leadTime: String, minimumOrderQuantity: { type: Number, min: 1, default: 10 }, active: { type: Boolean, default: true } }, { timestamps: true });
+export const Product = models.Product || model("Product", productSchema);

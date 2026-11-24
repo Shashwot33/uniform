@@ -1,0 +1,2 @@
+export function OrderStatus() { return <div className="mx-auto max-w-xl card p-6"><p className="eyebrow">Order #demo-2026</p><h1 className="page-title">Order received</h1><ol className="mt-6 space-y-5 border-l-2 border-blue-100 pl-5"><li><strong>Order confirmed</strong><p className="text-sm text-slate-600">We’ll confirm stock and delivery by phone.</p></li><li className="text-slate-400"><strong>Preparing your uniform</strong></li><li className="text-slate-400"><strong>Out for delivery</strong></li></ol></div> }
+

@@ -1,0 +1,3 @@
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
+export function ThreeViewer() { return <div className="h-full min-h-[380px] rounded-2xl bg-sky-50"><Canvas><PerspectiveCamera makeDefault position={[0, 0.5, 5]}/><ambientLight intensity={1.5}/><directionalLight position={[3, 5, 4]} intensity={2}/><mesh position={[0, 0, 0]}><capsuleGeometry args={[0.8, 2.4, 8, 16]}/><meshStandardMaterial color="#13294b" roughness={.75}/></mesh><mesh position={[0, 1.9, 0]}><sphereGeometry args={[.65, 24, 24]}/><meshStandardMaterial color="#d49a6a"/></mesh><OrbitControls enablePan={false} minDistance={3} maxDistance={7}/></Canvas></div>; }

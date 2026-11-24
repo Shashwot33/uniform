@@ -1,0 +1,2 @@
+import { Nav } from "../../components/Nav"; import { Footer } from "../../components/Footer"; import { PageHero } from "../../components/PageHero"; import { RequestForm } from "../../components/RequestForm";
+export default function Customize(){return <><Nav/><PageHero eyebrow="Custom uniform manufacturing" title="Start with your school identity."><p>Build a manufacturing brief for a new uniform programme. Digital previews are illustrative until the approved sample stage.</p></PageHero><main className="section"><RequestForm kind="customizations"/></main><Footer/></>}

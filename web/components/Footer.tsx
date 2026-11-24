@@ -1,0 +1,2 @@
+import Link from "next/link";
+export function Footer() { return <footer className="footer"><div><strong>Uniform Nepal</strong><p>Institutional uniform manufacturing. Nepal.</p></div><div className="footer-links"><Link href="/quote">Request quotation</Link><Link href="/samples">Request a sample</Link><Link href="/contact">Contact</Link><Link href="/track">Order tracking</Link></div><small>Business facts, partner logos and testimonials are published only after authorization and verification.</small></footer>; }

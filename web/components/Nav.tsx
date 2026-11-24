@@ -1,0 +1,2 @@
+import Link from "next/link";
+export function Nav() { return <header className="nav"><Link className="brand" href="/">Uniform<b>Nepal</b></Link><nav className="links"><Link href="/products">Uniforms</Link><Link href="/designer">3D designer</Link><Link href="/facility">Facility</Link><Link href="/process">Process</Link><Link href="/customize">Custom design</Link></nav><Link className="cta" href="/quote">Request quotation</Link></header>; }

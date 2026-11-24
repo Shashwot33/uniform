@@ -1,0 +1,7 @@
+import { useParams } from "react-router-dom";
+import { catalog } from "../lib/catalog";
+import { TryOnStudio } from "../components/TryOnStudio";
+import { useCart } from "../stores/cart";
+import { useState } from "react";
+export function Product() { const item = catalog.find(x => x.id === useParams().id) ?? catalog[0]; const add = useCart(s => s.add); const [size, setSize] = useState(item.sizes[0]); const [colour, setColour] = useState(item.colour); return <div className="grid gap-6 lg:grid-cols-[1.3fr_1fr]"><TryOnStudio/><section><p className="eyebrow">{item.category}</p><h1 className="page-title">{item.name}</h1><p className="mt-2 text-2xl font-bold">NPR {item.price.toLocaleString()}</p><p className="mt-4 text-slate-600">Durable, school-day ready uniform with easy-care fabric. Use the studio to see how it fits with the rest of the set.</p><label className="field">Colour<select value={colour} onChange={e => setColour(e.target.value)}>{item.colours.map(x => <option key={x}>{x}</option>)}</select></label><label className="field">Size<select value={size} onChange={e => setSize(e.target.value)}>{item.sizes.map(x => <option key={x}>{x}</option>)}</select></label><button className="btn-primary mt-5 w-full" onClick={() => add({ garment: item, size, colour, quantity: 1 })}>Add to cart</button><p className="mt-3 text-xs text-slate-500">Need help choosing? Check your school’s uniform guide or measure an existing garment.</p></section></div> }
+

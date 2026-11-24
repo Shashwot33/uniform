@@ -1,0 +1,2 @@
+import { Nav } from "../../components/Nav"; import { Footer } from "../../components/Footer"; import { PageHero } from "../../components/PageHero"; import { RequestForm } from "../../components/RequestForm";
+export default function Samples(){return <><Nav/><PageHero eyebrow="Sample requests" title="See the material before you commit."><p>Request fabrics, embroidery, printing or prototype samples for institutional review.</p></PageHero><main className="section"><RequestForm kind="samples"/></main><Footer/></>}

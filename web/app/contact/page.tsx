@@ -1,0 +1,2 @@
+import { Nav } from "../../components/Nav"; import { Footer } from "../../components/Footer"; import { PageHero } from "../../components/PageHero";
+export default function Contact(){return <><Nav/><PageHero eyebrow="Contact" title="Talk to our institutional team."><p>For manufacturing enquiries, use the quotation request form so your requirement can be reviewed with the right context.</p></PageHero><main className="section"><a className="button" href="/quote">Request a quotation →</a></main><Footer/></>}

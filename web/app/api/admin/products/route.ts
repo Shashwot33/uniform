@@ -1,0 +1,8 @@
+import { NextResponse } from "next/server";
+import { z } from "zod";
+import { connectMongo } from "../../../../lib/mongodb";
+import { Product } from "../../../../models/Product";
+import { isAdmin } from "../../../../lib/admin";
+const productPatch = z.object({ id: z.string().min(1), indicativePriceNpr: z.coerce.number().min(0).max(10_000_000).optional(), imageUrl: z.string().url().optional(), active: z.boolean().optional() });
+export async function GET() { if (!(await connectMongo())) return NextResponse.json({ products: [], configured: false }); const products = await Product.find().sort({ updatedAt: -1 }).lean(); return NextResponse.json({ products, configured: true }); }
+export async function PATCH(request: Request) { if (!isAdmin(request)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 }); const input = productPatch.safeParse(await request.json()); if (!input.success) return NextResponse.json({ error: "Invalid product update" }, { status: 400 }); if (!(await connectMongo())) return NextResponse.json({ error: "MongoDB is not configured" }, { status: 503 }); const { id, ...update } = input.data; const product = await Product.findByIdAndUpdate(id, { $set: update }, { new: true, runValidators: true }).lean(); if (!product) return NextResponse.json({ error: "Product not found" }, { status: 404 }); return NextResponse.json({ product }); }
